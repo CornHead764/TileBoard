@@ -1717,6 +1717,7 @@ App.controller('Main', ['$scope', '$timeout', '$location', 'Api', function ($sco
       var index = $scope.pages.indexOf(activePage);
       var translate = '-' + (index * 100) + '%';
       $scope.pagesContainerStyles.transform = getTransformCssValue(translate);
+      $scope.pagesContainerStyles['-webkit-transform'] = getTransformCssValue(translate);
 
       if(preventAnimation) {
          $scope.pagesContainerStyles.transition = 'none';
@@ -1837,6 +1838,7 @@ App.controller('Main', ['$scope', '$timeout', '$location', 'Api', function ($sco
       // Check that new offset is within range of pages area.
       if(newOffset <= 0 && newOffset >= ((pageCount - 1) * -100)) {
          $scope.pagesContainerStyles.transform = getTransformCssValue(newOffset + '%');
+         $scope.pagesContainerStyles['-webkit-transform'] = getTransformCssValue(newOffset + '%');
       }
    }
 
